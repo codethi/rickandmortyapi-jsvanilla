@@ -1,10 +1,12 @@
 let page = 1;
 
 async function getCharacters() {
-  const resp = await fetch( `https://rickandmortyapi.com/api/character?page=${page}`);
+  const resp = await fetch(
+    `https://rickandmortyapi.com/api/character?page=${page}`
+  );
   const data = await resp.json();
 
-  if(resp.status == 404){
+  if (resp.status == 404) {
     document.querySelector("#more").style.display = "none";
   }
 
@@ -36,19 +38,10 @@ function viewMore() {
   getCharacters();
 }
 
-// Scroll infinito
-/* window.onscroll = function onScroll(e) {
-  const scrollTop = e.target.documentElement.scrollTop;
-  const windowHeight = window.innerHeight;
-  const scrollHeight = e.target.documentElement.scrollHeight;
+window.addEventListener("scroll", function () {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-  if (windowHeight + scrollTop * 2 >= scrollHeight) {
+  if (scrollTop + clientHeight >= scrollHeight - 200) {
     viewMore();
   }
-
-  window.onscroll = null;
-
-  setTimeout(function () {
-    window.onscroll = onScroll;
-  }, 250);
-}; */
+});
