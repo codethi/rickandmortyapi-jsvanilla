@@ -1,7 +1,7 @@
-let page = 0;
+let page = 1;
 
 async function getCharacters() {
-  const resp = await fetch( `https://rickandmortyapi.com/api/character?page=${page + 1}`);
+  const resp = await fetch( `https://rickandmortyapi.com/api/character?page=${page}`);
   const data = await resp.json();
 
   if(resp.status == 404){
@@ -31,7 +31,7 @@ async function getCharacters() {
 
 getCharacters();
 
-async function viewMore() {
+function viewMore() {
   page++;
   getCharacters();
 }
