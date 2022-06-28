@@ -57,6 +57,7 @@ section#character-list {
     width: 560px;
     border-radius: .5rem;
     margin: 4px 0;
+    cursor: pointer;
 }
 
 .image-character {
@@ -85,6 +86,10 @@ section#character-list {
 
 .card p {
     color: #ededed;
+}
+
+.card span {
+    display: none;
 }
 
 button#more {
@@ -117,4 +122,73 @@ footer {
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
+}
+
+#modal-overlay {
+    background-color: #00000090;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.modal {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    min-height: 300px;
+    background-color: #3C3E44;
+    border-radius: 11px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal span {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #a8a8a8;
+    padding: .5rem;
+    border-radius: 0 11px 0 11px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.modal span:hover {
+    background-color: #797979;
+}
+
+.modal img {
+    object-fit: cover;
+    object-position: center;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.modal div {
+    padding: 1rem;
+}
+
+.modal h2 {
+    color: #ededed;
+    padding-bottom: 1rem;
+}
+
+.modal h4 {
+    color: #a4a4a4;
+    padding: 5px 0;
+    font-weight: 400;
+}
+
+.modal p {
+    color: #ededed;
+    padding-bottom: 1rem;
 }
