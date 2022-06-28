@@ -39,8 +39,6 @@ async function getCharacters() {
       const cardElement = event.path.filter((item) => item.className == "card");
       const idCard = cardElement[0].children[1].children[6].innerHTML;
 
-      console.log(event);
-
       const resp = await fetch(
         `https://rickandmortyapi.com/api/character/${idCard}`
       );
@@ -50,7 +48,7 @@ async function getCharacters() {
 
       modal.insertAdjacentHTML(
         "beforeend",
-        `<div class="modal modal-item">
+      `<div id="modal" class="modal-item" >
               <span id="close-modal">x</span>
               <img class="modal-item" src=${
                 data.image
@@ -68,6 +66,8 @@ async function getCharacters() {
                   <p class="modal-item">${data.location.name}</p>
                   <h4 class="modal-item">Status</h4>
                   <p class="modal-item">${data.status}</p>
+
+                  <span id="modal-id">${data.id}</span>
               </div>
           </div>
           `
@@ -80,7 +80,7 @@ async function getCharacters() {
   window.addEventListener("click", function (event) {
     if (!event.target.classList.contains("modal-item")) {
       modal.style.display = "none";
-      modal.removeChild(document.querySelector(".modal"));
+      modal.removeChild(document.querySelector("#modal"));
     }
   });
 }

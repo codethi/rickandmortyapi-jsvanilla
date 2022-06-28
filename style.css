@@ -138,7 +138,7 @@ footer {
     overflow-y: auto;
 }
 
-.modal {
+#modal {
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -150,7 +150,7 @@ footer {
     position: relative;
 }
 
-.modal span {
+#modal span {
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     position: absolute;
@@ -163,32 +163,36 @@ footer {
     transition: all .3s ease-in-out;
 }
 
-.modal span:hover {
+#modal span:hover {
     background-color: #797979;
 }
 
-.modal img {
+#modal img {
     object-fit: cover;
     object-position: center;
     border-radius: .5rem 0 0 .5rem;
 }
 
-.modal div {
+#modal div {
     padding: 1rem;
 }
 
-.modal h2 {
+#modal h2 {
     color: #ededed;
     padding-bottom: 1rem;
 }
 
-.modal h4 {
+#modal h4 {
     color: #a4a4a4;
     padding: 5px 0;
     font-weight: 400;
 }
 
-.modal p {
+#modal p {
     color: #ededed;
     padding-bottom: 1rem;
+}
+
+#modal span#modal-id {
+    display: none;
 }
