@@ -18,10 +18,29 @@
     <section id="character-list"></section>
 
     <button id="more" onclick="viewMore()">Ver mais</button>
-    
+
     <footer></footer>
 
-    <section id="modal-overlay"></section>
+    <section id="modal-overlay">
+        <div id="modal" class="modal-item">
+            <span id="close-modal">x</span>
+            <img class="modal-item" id="modal-image" src="" alt="Imagem do Personagem" />
+            <div>
+                <h2 class="modal-item" id="modal-name"></h2>
+
+                <h4 class="modal-item">Species</h4>
+                <p class="modal-item" id="modal-species"></p>
+                <h4 class="modal-item">Gender</h4>
+                <p class="modal-item" id="modal-gender"></p>
+                <h4 class="modal-item">Origin</h4>
+                <p class="modal-item" id="modal-origin"></p>
+                <h4 class="modal-item">Location</h4>
+                <p class="modal-item" id="modal-location"></p>
+                <h4 class="modal-item">Status</h4>
+                <p class="modal-item" id="modal-status"></p>
+            </div>
+        </div>
+    </section>
 
     <script src="./script.js"></script>
 </body>

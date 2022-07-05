@@ -1,5 +1,13 @@
 let page = 1;
 
+const modalImage = document.querySelector("#modal-image");
+const modalName = document.querySelector("#modal-name");
+const modalSpecies = document.querySelector("#modal-species");
+const modalGender = document.querySelector("#modal-gender");
+const modalOrigin = document.querySelector("#modal-origin");
+const modalLocation = document.querySelector("#modal-location");
+const modalStatus = document.querySelector("#modal-status");
+
 async function getCharacters() {
   const resp = await fetch(
     `https://rickandmortyapi.com/api/character?page=${page}`
@@ -46,32 +54,13 @@ async function getCharacters() {
 
       modal.style.display = "flex";
 
-      modal.insertAdjacentHTML(
-        "beforeend",
-      `<div id="modal" class="modal-item" >
-              <span id="close-modal">x</span>
-              <img class="modal-item" src=${
-                data.image
-              } alt=${`Imagem do ${data.name}`} />
-              <div>
-                  <h2 class="modal-item">${data.name}</h2>
-                  
-                  <h4 class="modal-item">Species</h4>
-                  <p class="modal-item">${data.species}</p>
-                  <h4 class="modal-item">Gender</h4>
-                  <p class="modal-item">${data.gender}</p>
-                  <h4 class="modal-item">Origin</h4>
-                  <p class="modal-item">${data.origin.name}</p>
-                  <h4 class="modal-item">Location</h4>
-                  <p class="modal-item">${data.location.name}</p>
-                  <h4 class="modal-item">Status</h4>
-                  <p class="modal-item">${data.status}</p>
-
-                  <span id="modal-id">${data.id}</span>
-              </div>
-          </div>
-          `
-      );
+      modalImage.setAttribute("src", data.image);
+      modalName.innerText = data.name;
+      modalSpecies.innerText = data.species;
+      modalGender.innerText = data.gender;
+      modalOrigin.innerText = data.origin.name;
+      modalLocation.innerText = data.location.name;
+      modalStatus.innerText = data.status;
     });
   });
 
@@ -80,7 +69,6 @@ async function getCharacters() {
   window.addEventListener("click", function (event) {
     if (!event.target.classList.contains("modal-item")) {
       modal.style.display = "none";
-      modal.removeChild(document.querySelector("#modal"));
     }
   });
 }
