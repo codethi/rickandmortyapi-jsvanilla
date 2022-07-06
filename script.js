@@ -32,7 +32,7 @@ async function getCharacters() {
                 <p class="species-character">${character.gender}</p>
                 <h4>Origin</h4>
                 <p class="species-origin">${character.origin.name}</p>
-                <span>${character.id}</span>
+                <span class="character-id">${character.id}</span>
             </div>
         </div>
         `
@@ -41,12 +41,10 @@ async function getCharacters() {
 
   const cards = document.querySelectorAll(".card");
   const modal = document.querySelector("#modal-overlay");
-
   cards.forEach((card) => {
     card.addEventListener("click", async function (event) {
       const cardElement = event.path.filter((item) => item.className == "card");
       const idCard = cardElement[0].children[1].children[6].innerHTML;
-
       const resp = await fetch(
         `https://rickandmortyapi.com/api/character/${idCard}`
       );
@@ -61,7 +59,7 @@ async function getCharacters() {
       modalOrigin.innerText = data.origin.name;
       modalLocation.innerText = data.location.name;
       modalStatus.innerText = data.status;
-    });
+    }); 
   });
 
   // Fechar modal
